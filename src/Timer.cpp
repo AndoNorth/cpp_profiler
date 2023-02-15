@@ -1,5 +1,4 @@
 #include "Timer.h"
-#include <chrono>
 
 Timer::Timer()
 {
@@ -18,6 +17,5 @@ void Timer::stop()
 
 double Timer::elapsed_ms()
 {
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
-    return duration.count();
+    return std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
 }

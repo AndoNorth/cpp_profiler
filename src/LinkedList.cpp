@@ -1,5 +1,5 @@
 #include "LinkedList.h"
-
+// single linked list
 LinkedList::LinkedList() : head(nullptr), tail(nullptr) {}
 
 LinkedList::~LinkedList()
@@ -13,15 +13,10 @@ LinkedList::~LinkedList()
     }
 }
 
-void LinkedList::initialize()
-{
-    head = nullptr;
-}
-
 void LinkedList::append(int data)
 {
     Node *new_node = new Node(data);
-    if (!head)
+    if (!head) // if head is null
     {
         head = new_node;
         tail = new_node;
@@ -29,13 +24,12 @@ void LinkedList::append(int data)
     }
 
     tail->next = new_node;
-    tail = new_node;
 }
 
 void LinkedList::prepend(int data)
 {
     Node *new_node = new Node(data);
-    if (!head)
+    if (!head) // if head is null
     {
         head = new_node;
         tail = new_node;
@@ -73,7 +67,7 @@ void LinkedList::insert(int data, int index)
 
 void LinkedList::remove(int index)
 {
-    if (!head)
+    if (!head) // if head is null
     {
         return;
     }
@@ -102,5 +96,4 @@ void LinkedList::remove(int index)
     Node *to_remove = current->next;
     current->next = to_remove->next;
     delete to_remove;
-    if (!current->next)
 }

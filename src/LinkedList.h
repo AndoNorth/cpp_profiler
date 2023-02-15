@@ -25,8 +25,8 @@ public:
     void prepend(int data);
     void insert(int data, int index);
     void remove(int index);
-    int get(int index) const;
-    size_t size() const;
+    int get(int index) const; // TODO: implement
+    size_t size() const;      // TODO: implement
 };
 
 #endif // LINKED_LIST_H
