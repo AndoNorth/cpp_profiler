@@ -1,35 +1,41 @@
-#include <iostream>
 #include "LinkedList.h"
 #include "Timer.h"
-#include "Performance.h"
 #include "Reporting.h"
+
+#include <iostream>
 
 int main()
 {
     LinkedList list;
     Timer timer;
-    Performance performance;
     Reporting reporting;
 
     // initialize the linked list
     list.initialize();
 
+    // timings
+    std::vector<double> timings;
+
     // start the timer
     timer.start();
 
     // perform some operations on the linked list
-    list.addNode(1);
-    list.addNode(2);
-    list.addNode(3);
+    list.append(1);
+    list.prepend(2);
+    list.insert(3, 2);
 
     // stop the timer
     timer.stop();
 
-    // measure the performance
-    PerformanceData performanceData = performance.measure(timer, list);
+    // add time to timings list
+    timings.push_back(timer.elapsed_ms());
 
     // display the results
-    reporting.displayResults(performanceData);
+    reporting.printResults(timings);
+
+    // save to text file
+    std::string filepath = "./reports/performance.txt";
+    reporting.saveResults(timings, filepath);
 
     return 0;
 }

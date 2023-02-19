@@ -2,7 +2,6 @@
 #define LINKED_LIST_H
 
 #include <cstddef>
-
 class LinkedList
 {
     struct Node
